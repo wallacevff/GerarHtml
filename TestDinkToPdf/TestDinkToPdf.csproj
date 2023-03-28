@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Dlls\libwkhtmltox.dll" />
+    <None Remove="Dlls\x86\libwkhtmltox.dll" />
+    <None Remove="libwkhtmltox.dylib" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="libwkhtmltox.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="libwkhtmltox.dylib">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="Dlls\x86\libwkhtmltox.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DinkToPdf" Version="1.0.8" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Dlls\x64\" />
+  </ItemGroup>
+
+</Project>
